@@ -37,6 +37,7 @@ import fakeData from '../../fakeData';
 import React, { useState } from 'react';
 import './Shop.css'
 import Product from '../Product/Product';
+import Cart from '../Cart/Cart';
 
 const Shop = () => {
     const first10 = fakeData.slice(0, 10);
@@ -45,7 +46,7 @@ const Shop = () => {
     const [cart, setCart] = useState([]);
 
     const handleAddProduct = (product) => {
-        console.log("Product added", product);
+        // console.log("Product added", product);
 
         // ...cart hocche ager cart a ja ase seta add korbo+ naw jeta ase oita set cart a add krbo
         const newCart = [...cart, product];
@@ -64,7 +65,7 @@ const Shop = () => {
 
             </div>
             <div className="cart-container">
-                <h2>Order Summary : {cart.length}</h2>
+                <Cart cart={cart}></Cart>
             </div>
         </div>
     );
