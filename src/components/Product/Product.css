@@ -1,0 +1,15 @@
+.product {
+    font-family: sans-serif;
+    display: flex;
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    margin-right: 10px;
+}
+
+.product-name {
+    padding-left: 25px;
+    color: blue;
+    font-weight: 400;
+}
