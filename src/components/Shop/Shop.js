@@ -46,7 +46,7 @@ const Shop = () => {
             <div className="product-container">
                   
                 {
-                    products.map(product => <Product>{product.name}</Product>)
+                    products.map(pd => <Product product={pd}></Product>)
                 }
                 
             </div>
