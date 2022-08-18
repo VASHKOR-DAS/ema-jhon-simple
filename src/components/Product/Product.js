@@ -1,5 +1,7 @@
 import React from 'react';
 import './Product.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
 // kono data parameter hisebe newar jnno 'props' use hoise
 const Product = (props) => {
@@ -14,10 +16,14 @@ const Product = (props) => {
             </div>
             <div className="product-name">
                 <h4>{name}</h4>
-                <p><small>by : {seller}</small></p>
                 <br />
+                <p><small>by : {seller}</small></p>
                 <p>${price}</p>
                 <p><small>only {stock} left in stock - order soon</small></p>
+                <button className="main-button">
+                    <FontAwesomeIcon icon={faShoppingCart}
+                    /> add to cart
+                </button>
             </div>
         </div>
     );
