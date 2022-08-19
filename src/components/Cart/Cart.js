@@ -8,7 +8,9 @@ const Cart = (props) => {
     const formatNumber = num => {
         const precision = num.toFixed(2);
         return Number(precision);
-    } 
+    }
+    
+    // const total = cart.reduce((total, product) => total + product.price , 0)
 
     let items = 0;
     let tax = 0;
@@ -18,7 +20,7 @@ const Cart = (props) => {
         const product = cart[i];
 
         items = items + product.price;
-        tax =  product.price / 10;
+        tax = tax + product.price / 10;
         total = total + product.price;
     }
 
