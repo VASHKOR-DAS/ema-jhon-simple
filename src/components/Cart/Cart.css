@@ -1,12 +1,12 @@
 .cart {
     margin-left: 5px;
+    position: fixed;
 }
 .cart table{
     font-size: 12px;
     text-align: left;
 }
 table td:last-child{
-    padding-left: 15px;
     text-align: right;
 }
 .total-row{
