@@ -4,13 +4,15 @@ import fakeData from '../../fakeData';
 import Product from '../Product/Product';
 
 const ProductDetail = () => {
-    const {ProductKey} = useParams()
+
+    //useParams holo useState er moto, ata parameter hisebe kaj kore
+    const { ProductKey } = useParams()
 
     //ProductKey jar sathe match hobe take fakeDate/Api theke niye asha
     const product = fakeData.find(pd => pd.key === ProductKey)
     return (
         <div>
-            <h1>Poduct Detail</h1>
+            <h1>Your Product Details.</h1>
             <h2>Product Key : {ProductKey}</h2>
 
             <h2>Show Product Match With ProductKey</h2>
@@ -33,7 +35,11 @@ const ProductDetail = () => {
             tar ProductKey match hoye,
             product gulo show hobe */}
 
-            <Product product={product}></Product>
+            {/* ProductDetail components a Add to cart button ta dekhabo na, er jnne r 1ta property likhlam */}
+            <Product
+                showAddToCard={false}
+                product={product}
+            ></Product>
 
 
 

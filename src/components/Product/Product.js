@@ -16,17 +16,35 @@ const Product = (props) => {
                 <img src={img} alt="product img" srcset="" />
             </div>
             <div className="product-name">
-                <h4><Link to={'/product/'+key}>{name}</Link></h4>
+
+                {/* ai Link ta holo react-router-dom */}
+                <h4><Link to={'/product/' + key}>{name}</Link></h4>
+
                 <br />
                 <p><small>by : {seller}</small></p>
                 <p>${price}</p>
                 <p><small>only {stock} left in stock - order soon</small></p>
-                <button 
-                    className="main-button" 
-                    onClick={ () => (props.handleAddProduct(props.product))} /* function auto execute jeno na hoy, tai er vitore 1ta () => likhte hoy */
-                >
-                        <FontAwesomeIcon icon={faShoppingCart}/> add to cart
-                </button>
+
+
+                {/* ProductDetail components a Add to cart button ta dekhabo na,
+                but shop.js a dekhabo.
+                er jnne ProductDetail a value false,
+                r aikhane value true.
+                tai
+                button ta conditionally dynamic korlam
+
+                props.showAddToCard &&
+                props.showAddToCard === true &&
+            */}
+                {props.showAddToCard === true &&
+
+                    <button
+                        className="main-button"
+                        onClick={() => (props.handleAddProduct(props.product))} /* function auto execute jeno na hoy, tai er vitore 1ta () => likhte hoy */
+                    >
+                        <FontAwesomeIcon icon={faShoppingCart} /> add to cart
+                    </button>
+                }
             </div>
         </div>
     );

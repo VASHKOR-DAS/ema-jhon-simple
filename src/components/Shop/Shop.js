@@ -57,8 +57,14 @@ const Shop = () => {
         <div className="shop-container">
             <div className="product-container">
 
+
+                {/* ProductDetail components a Add to cart button ta dekhabo na,
+                but shop.js a dekhabo.
+                er jnne ProductDetail a value false,
+                r aikhane value true */}
                 {
                     products.map(pd => <Product
+                        showAddToCard={true}
                         handleAddProduct = {handleAddProduct}
                         product = {pd}></Product>)
                 }
