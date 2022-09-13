@@ -38,7 +38,7 @@ import React, { useState } from 'react';
 import './Shop.css'
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
-import { addToDb } from '../../utilities/fakedb';
+import { addToDatabaseCart } from '../../utilities/databaseManager';
 
 
 const Shop = () => {
@@ -59,7 +59,7 @@ const Shop = () => {
         // shop er information gulo localStorage a pathabo, jeno seta cart a pete pari, ata redux diye kora jay
         const sameProduct = newCart.filter(pd => pd.key === product.key);
         const count = sameProduct.length;
-        addToDb(product.key, count);
+        addToDatabaseCart(product.key, count);
 
         
         
@@ -78,7 +78,7 @@ const Shop = () => {
                 {
                     products.map(pd => <Product
                         key={pd.key}
-                        showAddToCard={true}
+                        showAddToCart={true}
                         handleAddProduct = {handleAddProduct}
                         product = {pd}></Product>)
                 }

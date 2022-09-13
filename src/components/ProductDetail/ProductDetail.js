@@ -37,7 +37,7 @@ const ProductDetail = () => {
 
             {/* ProductDetail components a Add to cart button ta dekhabo na, er jnne r 1ta property likhlam */}
             <Product
-                showAddToCard={false}
+                showAddToCart={false}
                 product={product}
             ></Product>
 

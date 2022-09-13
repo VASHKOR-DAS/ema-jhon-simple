@@ -33,10 +33,10 @@ const Product = (props) => {
                 tai
                 button ta conditionally dynamic korlam
 
-                props.showAddToCard &&
-                props.showAddToCard === true &&
+                props.showAddToCart &&
+                props.showAddToCart === true &&
             */}
-                {props.showAddToCard === true &&
+                {props.showAddToCart === true &&
 
                     <button
                         className="main-button"
