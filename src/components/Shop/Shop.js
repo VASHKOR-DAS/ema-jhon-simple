@@ -38,6 +38,8 @@ import React, { useState } from 'react';
 import './Shop.css'
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
+import { addToDb } from '../../utilities/fakedb';
+
 
 const Shop = () => {
     const first10 = fakeData.slice(0, 10);
@@ -51,6 +53,10 @@ const Shop = () => {
         // ...cart hocche ager cart a ja ase seta add korbo+ naw jeta ase oita set cart a add krbo
         const newCart = [...cart, product];
         setCart(newCart);
+
+        // shop er information gulo localStorage a pathabo, jeno seta cart a pete pari, ata redux diye kora jay
+        addToDb(product.key, 1)
+
     }
 
     return (
