@@ -64,6 +64,7 @@ const Shop = () => {
                 r aikhane value true */}
                 {
                     products.map(pd => <Product
+                        key={pd.key}
                         showAddToCard={true}
                         handleAddProduct = {handleAddProduct}
                         product = {pd}></Product>)

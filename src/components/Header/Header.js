@@ -5,7 +5,7 @@ import './Header.css' //same folder hole ./
 const Header = () => {
     return (
         <div className='header'>
-            <img src={logo} alt="logo" srcset="" />
+            <img src={logo} alt="logo" srcSet="" />
             <nav>
                 <a href="/shop">Shop</a>
                 <a href="/review">Order Review</a>

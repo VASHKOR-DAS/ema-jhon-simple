@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Cart.css'
 
 const Cart = (props) => {
@@ -9,7 +10,7 @@ const Cart = (props) => {
         const precision = num.toFixed(2);
         return Number(precision);
     }
-    
+
     // const total = cart.reduce((total, product) => total + product.price , 0)
 
     let items = 0;
@@ -41,28 +42,54 @@ const Cart = (props) => {
             <h3>Order Summary</h3>
             <p>Items ordered : {cart.length}</p>
 
-              <table>
+            <table>
+                <tbody>
                     <tr>
                         <td>Items :</td>
                         <td>${formatNumber(items)}</td>
                     </tr>
+                </tbody>
+                
+                <tbody>
                     <tr>
                         <td>Shipping & Handling:</td>
                         <td>${formatNumber(shipping)}</td>
                     </tr>
+                </tbody>
+
+                <tbody>
                     <tr>
                         <td>Total before tax:</td>
-                        <td>${formatNumber(total+shipping)}</td>
+                        <td>${formatNumber(total + shipping)}</td>
                     </tr>
+                </tbody>
+
+                <tbody>
                     <tr>
                         <td>Estimated Tax:</td>
                         <td>${formatNumber(tax)}</td>
                     </tr>
+                </tbody>
+
+                <tbody>
                     <tr className='total-row'>
                         <td>Order Total:</td>
-                        <td>${formatNumber(total+shipping+tax)}</td>
+                        <td>${formatNumber(total + shipping + tax)}</td>
                     </tr>
-                </table>
+                </tbody>
+
+
+            </table>
+
+            <br />
+
+            {/* Review Order a click korle
+                Review components er vitore jabe
+                seta korle chaile 
+                <Link> route set korte hbe */}
+            <Link to='/review'>
+                <button className='main-button'>Review Order</button>
+            </Link>
 
         </div>
     );
