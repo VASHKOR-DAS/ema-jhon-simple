@@ -43,6 +43,8 @@ import { addToDb } from '../../utilities/fakedb';
 
 const Shop = () => {
     const first10 = fakeData.slice(0, 10);
+
+    // eslint-disable-next-line
     const [products, setProducts] = useState(first10);
 
     const [cart, setCart] = useState([]);
@@ -55,7 +57,12 @@ const Shop = () => {
         setCart(newCart);
 
         // shop er information gulo localStorage a pathabo, jeno seta cart a pete pari, ata redux diye kora jay
-        addToDb(product.key, 1)
+        const sameProduct = newCart.filter(pd => pd.key === product.key);
+        const count = sameProduct.length;
+        addToDb(product.key, count);
+
+        
+        
 
     }
 
