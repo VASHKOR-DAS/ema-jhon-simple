@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import fakeData from '../../fakeData';
 import { getDatabaseCart } from '../../utilities/databaseManager';
+import Cart from '../Cart/Cart';
 import ReviewItem from '../ReviewItem/ReviewItem';
 
 const Review = () => {
@@ -43,14 +44,21 @@ const Review = () => {
             <h1>Cart Items : {cart.length}</h1>
 
             {/* order review te product er review gulo show korabo */}
-            {
-                cart.map(pd =>
-                    <ReviewItem
-                        key={pd.key}
-                        product={pd}
-                    >
-                    </ReviewItem>)
-            }
+            <div className="twin-container">
+                <div className="product-container">
+                    {
+                        cart.map(pd =>
+                            <ReviewItem
+                                key={pd.key}
+                                product={pd}
+                            >
+                            </ReviewItem>)
+                    }
+                </div>
+                <div className="cart-container">
+                    <Cart cart={cart}></Cart>
+                </div>
+            </div>
 
         </div>
     );
