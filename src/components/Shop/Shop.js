@@ -52,18 +52,64 @@ const Shop = () => {
     const handleAddProduct = (product) => {
         // console.log("Product added", product);
 
+        // modify code
+        /* amra age 1ta product bar bar add korci,
+        but akhon seta korbona
+        akhon sudhu quantity gulo barabo,
+        mane, 2nd time add korte chaile tar quantity 1, 1 kore barabo.
+
+        */
+        const toBeAddedKey = product.key;
+        const sameProduct = cart.find(pd => pd.key === toBeAddedKey);
+        let count = 1;
+        let newCart;
+        if(sameProduct){
+            count = sameProduct.quantity + 1;
+            sameProduct.quantity = count;
+
+            // ai product ta bade baki product gulo
+            // cart a add korbo, then jetar 1 baralam seta add kore dibo
+            const others = cart.filter(pd => pd.key !== toBeAddedKey);
+            
+            // filter korle 1ta array pawa jay
+            newCart = [...others, sameProduct];
+        }
+        else {
+            product.quantity = 1;
+            newCart = [...cart, product];
+        }
+
         // ...cart hocche ager cart a ja ase seta add korbo+ naw jeta ase oita set cart a add krbo
-        const newCart = [...cart, product];
+        // const newCart = [...cart, product];
         setCart(newCart);
 
-        // shop er information gulo localStorage a pathabo, jeno seta cart a pete pari, ata redux diye kora jay
+
+        /*Jkhn review.js a quantity add krlm, tokhon shop.js a quantity ta payni.
+        amra setCart(newCart) a quantity jog na korei 
+        newCart ta Cart component a pathiye dicilm,
+        tai age Cart component a 'const newCart er cart' a quantity ta add kore then Cart component a pathabo, tai nicher code gulo modify kore upore lekha holo 
+        
+        shop er information gulo localStorage a pathabo, jeno seta cart a pete pari, ata redux diye kora jay
         const sameProduct = newCart.filter(pd => pd.key === product.key);
-        const count = sameProduct.length;
+        const count = sameProduct.length; */
+
+
+
+        /**
+         * OverAll same kaj e kortechilam but quantity add korchilam na
+         * tai akhon age product ta k khuje nicchi
+         * seta theke amra quantity portechi
+         * set quantity amra sameProduct.quantity = count; a set kortechi
+         * tarpor oita chara bakigulo k cart a copy kortechi
+         * tarpor seta k amra newCart = [...others, sameProduct]; a bosiye dicchi
+         * 
+         * let count = 1; 'jodi quantity na thake tobe initial 1 hobe' 
+         * r jodi beri hoy tobe bariye nicchi 'sameProduct.quantity = count;'
+         * 
+         * setCart(newCart) ata 2-jaygay, 2-condition a set korchi
+         */
+
         addToDatabaseCart(product.key, count);
-
-        
-        
-
     }
 
     return (
@@ -79,8 +125,8 @@ const Shop = () => {
                     products.map(pd => <Product
                         key={pd.key}
                         showAddToCart={true}
-                        handleAddProduct = {handleAddProduct}
-                        product = {pd}></Product>)
+                        handleAddProduct={handleAddProduct}
+                        product={pd}></Product>)
                 }
 
             </div>
