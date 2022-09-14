@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './Cart.css'
 
 const Cart = (props) => {
@@ -88,9 +87,22 @@ const Cart = (props) => {
                 Review components er vitore jabe
                 seta korle chaile 
                 <Link> route set korte hbe */}
+
+
+            {/* 
+            ai button ta shop.js a niye geci
+            
             <Link to='/review'>
                 <button className='main-button'>Review Order</button>
-            </Link>
+            </Link> 
+            
+            */}
+
+
+
+            {
+                props.children
+            }
 
         </div>
     );

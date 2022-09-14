@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import fakeData from '../../fakeData';
-import { getDatabaseCart } from '../../utilities/databaseManager';
+import { getDatabaseCart, removeFromDatabaseCart } from '../../utilities/databaseManager';
 import Cart from '../Cart/Cart';
 import ReviewItem from '../ReviewItem/ReviewItem';
 
@@ -10,6 +10,19 @@ const Review = () => {
 
     // database er information load korbo
     const [cart, setCart] = useState([]);
+
+
+
+    //remove product
+    const removeProduct = (productKey) => {
+        const newCart = cart.filter(pd => pd.key !== productKey);
+        setCart(newCart);
+        removeFromDatabaseCart(productKey);
+    }
+
+
+
+
     useEffect(() => {
         //cart er vitore data gulo rakhbo
         const savedCart = getDatabaseCart();
@@ -50,13 +63,16 @@ const Review = () => {
                         cart.map(pd =>
                             <ReviewItem
                                 key={pd.key}
+                                removeProduct={removeProduct}
                                 product={pd}
                             >
                             </ReviewItem>)
                     }
                 </div>
                 <div className="cart-container">
-                    <Cart cart={cart}></Cart>
+                    <Cart cart={cart}>
+                        <button className='main-button'>Place Order</button>
+                    </Cart>
                 </div>
             </div>
 
