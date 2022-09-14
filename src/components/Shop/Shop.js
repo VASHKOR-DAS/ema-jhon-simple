@@ -38,7 +38,8 @@ import React, { useState } from 'react';
 import './Shop.css'
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
-import { addToDatabaseCart } from '../../utilities/databaseManager';
+import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
+import { useEffect } from 'react';
 
 
 const Shop = () => {
@@ -48,6 +49,34 @@ const Shop = () => {
     const [products, setProducts] = useState(first10);
 
     const [cart, setCart] = useState([]);
+
+    /**
+         * Order Review te gele add kora product gulo localStores theke load kortechi, tai sekhane show kortese
+         * but aikhane localStores theke Load kora hoyni bidhay reload korle sob chole jay
+         * akhon seta add korbo
+         * productKeys gulo dhore fakeData theke matching kore product gulo niye ashbo
+         */
+    useEffect(() => {
+        const savedCart = getDatabaseCart();
+        //console.log(savedCart);
+        const productKeys = Object.keys(savedCart);
+        //console.log(productKeys);
+        const previousCart = productKeys.map( existingKey => {
+            const product = fakeData.find( pd => pd.key === existingKey);
+            // console.log(existingKey);
+            product.quantity = savedCart[existingKey]
+            // console.log(savedCart[existingKey]);
+            return product;
+        })
+        //console.log(previousCart);
+        setCart(previousCart);
+    }, [])
+
+
+
+
+
+
 
     const handleAddProduct = (product) => {
         // console.log("Product added", product);
@@ -63,14 +92,14 @@ const Shop = () => {
         const sameProduct = cart.find(pd => pd.key === toBeAddedKey);
         let count = 1;
         let newCart;
-        if(sameProduct){
+        if (sameProduct) {
             count = sameProduct.quantity + 1;
             sameProduct.quantity = count;
 
             // ai product ta bade baki product gulo
             // cart a add korbo, then jetar 1 baralam seta add kore dibo
             const others = cart.filter(pd => pd.key !== toBeAddedKey);
-            
+
             // filter korle 1ta array pawa jay
             newCart = [...others, sameProduct];
         }
