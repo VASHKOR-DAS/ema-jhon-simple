@@ -22,7 +22,8 @@ const Cart = (props) => {
 
         items = items + product.price;
         tax = tax + product.price / 10;
-        total = total + product.price;
+        total = total + product.price * product.quantity;
+        // debugger; kono problem thakle
     }
 
     let shipping = 0;
