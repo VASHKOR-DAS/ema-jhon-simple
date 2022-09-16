@@ -9,14 +9,18 @@
 
     border-bottom: 1px solid lightgrey;
     margin-bottom: 5px;
-    padding-bottom: 5px;
+    padding-bottom: 15px;
     padding-top: 10px;
     margin-right: 10px;
+    margin-left: 25px;
 }
 
 .product-name {
     width: 60%;
     padding-left: 25px;
+}
+
+.link {
     text-decoration: none;
     color: blue;
 }
@@ -37,14 +41,17 @@
 
     .product {
       flex-direction: column;
+      margin-left: 0px;
+      margin-right: 0px;
     }
 
     .product-img, .product-name {
-        width: 60%;
+        padding-left: 0px;
+        width: 70%;
         font-size: small;
     }
 
     .main-button {
-        width: 100px;
+        width: 110px;
     }
   }
