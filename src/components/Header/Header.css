@@ -16,10 +16,6 @@ nav a {
     padding: 5px;
 }
 
-nav a:hover {
-    background-color: gray;
-}
-
 nav div {
     display: flex;
     justify-content: center;
@@ -37,7 +33,7 @@ nav {
     font-size: 20px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .container img {
         margin-top: 10px;
         height: 50px;
@@ -46,16 +42,22 @@ nav {
     nav {
         display: inline-block;
         flex-direction: column;
+
         line-height: 25px;
+        width: 100%;
     }
 
     nav div {
-        font-size: 16px;
+        font-size: 14px;
         display: inline-block;
     }
 
     nav a {
         margin-right: 0px;
-        padding: 15px;
+        margin: 1px;
+    }
+
+    nav a:hover {
+        background-color: gray;
     }
 }
