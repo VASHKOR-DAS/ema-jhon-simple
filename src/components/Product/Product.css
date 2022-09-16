@@ -33,7 +33,7 @@
 
 
 /* responsive */
-@media (max-width: 800px) {
+@media only screen and (max-width: 800px) {
 
     .product {
       flex-direction: column;
