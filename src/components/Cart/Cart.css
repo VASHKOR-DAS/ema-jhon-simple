@@ -18,18 +18,18 @@ table td:last-child{
 }
 
 
-@media (max-width : 800px) {
+@media (max-width : 600px) {
      .cart {
-        width: 80%;
+        width: 90%;
+        margin-left: 5px;
     }
 
-    .total-row {
-        font-size: medium;
-        width: 10px;
+    .cart table, .total-row {
+        font-size: 12px;
     }
 
-    .cart h3 {
-        font-size: small;
+    .cart h3, .cart p {
+        font-size: 15px;
     }
 
 }
