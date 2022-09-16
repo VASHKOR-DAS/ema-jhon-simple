@@ -1,6 +1,12 @@
 .product {
     font-family: sans-serif;
+
+    /* responsive */
     display: flex;
+    flex-direction: row;
+    /* responsive */
+    
+
     border-bottom: 1px solid lightgrey;
     margin-bottom: 5px;
     padding-bottom: 5px;
@@ -24,3 +30,11 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+
+/* responsive */
+@media (max-width: 800px) {
+    .product {
+      flex-direction: column;
+    }
+  }

@@ -1,20 +1,29 @@
 import React from 'react';
 import logo from '../../images/logo.png'; // 1 level-up a hole ../
 import './Header.css' //same folder hole ./
-import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <div className='header'>
-            <img src={logo} alt="logo" srcSet="" />
-            <nav>
-                    
-                    <a href='/shop'>Shop</a>
-                    <a href='/review'>Order Review</a>
-                    <a href='/inventory'>Manage Inventory</a>
-               
-            </nav>
-        </div>
+        <>
+            <div className="container">
+
+                <img className='logo' src={logo} alt="logo" srcSet="" />
+
+                <nav>
+                    <div>
+                        <a href='/shop'>Shop</a>
+                    </div>
+
+                    <div>
+                        <a href='/review'>Order Review</a>
+                    </div>
+
+                    <div>
+                        <a href='/inventory'>Manage Inventory</a>
+                    </div>
+                </nav>
+            </div>
+        </>
     );
 };
 
