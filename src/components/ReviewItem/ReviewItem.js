@@ -2,7 +2,7 @@ import React from 'react';
 import './ReviewItem.css'
 
 const ReviewItem = (props) => {
-    console.log(props);
+    // console.log(props);
     const {removeProduct} = props;
     const {name, price, seller, quantity, key} = props.product;
     return (

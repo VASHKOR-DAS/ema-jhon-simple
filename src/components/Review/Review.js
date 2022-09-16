@@ -2,14 +2,34 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import fakeData from '../../fakeData';
-import { getDatabaseCart, removeFromDatabaseCart } from '../../utilities/databaseManager';
+import { getDatabaseCart, processOrder, removeFromDatabaseCart } from '../../utilities/databaseManager';
 import Cart from '../Cart/Cart';
 import ReviewItem from '../ReviewItem/ReviewItem';
+import happyImage from '../../images/giphy.gif'
 
 const Review = () => {
 
     // database er information load korbo
     const [cart, setCart] = useState([]);
+
+    // giphy .gif er clickHandler, first a aitar value false hbe, coz, jodi cart empty hoy tobe ai state kaj korbe
+    const [orderPlaced, setOrderPlaced] = useState (false);
+
+    //place order button
+    const handlePlaceOrder = () => {
+        /** order place button a click korle 2ta kaj hbe
+         * cart a ja ase sob clear hye jabe & thankyou .gif ta show hbe
+        */
+
+
+       // cart empty hye jabe
+       setCart([]);
+       // jodi cart empty hoy tobe ai state kaj korbe
+       setOrderPlaced(true);
+       // data base er order reset korar jnno call kora hoyeche
+       processOrder();
+
+    }
 
 
 
@@ -51,7 +71,16 @@ const Review = () => {
         setCart(cartProducts);
 
 
-    }, [])
+    }, []);
+
+    //.gif ta show tbe
+    let thankyou;
+    if (orderPlaced) {
+        thankyou = <img src={happyImage} alt="" srcSet=''/>
+    }
+
+
+
     return (
         <div>
             <h1>Cart Items : {cart.length}</h1>
@@ -68,10 +97,14 @@ const Review = () => {
                             >
                             </ReviewItem>)
                     }
+
+                    {/* .gif ta show tbe */}
+                    {thankyou}
+
                 </div>
                 <div className="cart-container">
                     <Cart cart={cart}>
-                        <button className='main-button'>Place Order</button>
+                        <button onClick={handlePlaceOrder} className='main-button'>Place Order</button>
                     </Cart>
                 </div>
             </div>
