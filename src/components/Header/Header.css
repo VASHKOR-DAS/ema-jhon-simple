@@ -37,7 +37,7 @@ nav {
     font-size: 20px;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
     .container img {
         margin-top: 10px;
         height: 50px;
@@ -50,7 +50,7 @@ nav {
     }
 
     nav div {
-        font-size: 14px;
+        font-size: 17.6px;
         display: inline-block;
     }
 
