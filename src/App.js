@@ -27,9 +27,9 @@ function App() {
 
           <Route path="/shop" element={<Shop></Shop>}></Route>
 
-          <Route exact path="/review" element={<Review></Review>}></Route>
+          <Route path="/review" element={<Review></Review>}></Route>
 
-          <Route exact path='/inventory' element={<Inventory></Inventory>}></Route>
+          <Route path='/inventory' element={<Inventory></Inventory>}></Route>
 
           {/* dynamic data set */}
           <Route path='/product/:ProductKey' element={<ProductDetail></ProductDetail>}></Route>
