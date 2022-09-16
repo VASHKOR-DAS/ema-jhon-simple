@@ -7,6 +7,7 @@ import { getDatabaseCart, processOrder, removeFromDatabaseCart } from '../../uti
 import Cart from '../Cart/Cart';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import happyImage from '../../images/giphy.gif'
+// import styles from './Review'
 
 const Review = () => {
 
@@ -14,7 +15,7 @@ const Review = () => {
     const [cart, setCart] = useState([]);
 
     // giphy .gif er clickHandler, first a aitar value false hbe, coz, jodi cart empty hoy tobe ai state kaj korbe
-    const [orderPlaced, setOrderPlaced] = useState (false);
+    const [orderPlaced, setOrderPlaced] = useState(false);
 
     //place order button
     const handlePlaceOrder = () => {
@@ -23,12 +24,12 @@ const Review = () => {
         */
 
 
-       // cart empty hye jabe
-       setCart([]);
-       // jodi cart empty hoy tobe ai state kaj korbe
-       setOrderPlaced(true);
-       // data base er order reset korar jnno call kora hoyeche
-       processOrder();
+        // cart empty hye jabe
+        setCart([]);
+        // jodi cart empty hoy tobe ai state kaj korbe
+        setOrderPlaced(true);
+        // data base er order reset korar jnno call kora hoyeche
+        processOrder();
 
     }
 
@@ -75,9 +76,17 @@ const Review = () => {
     }, []);
 
     //.gif ta show tbe
+
     let thankyou;
     if (orderPlaced) {
-        thankyou = <img src={happyImage} alt="" srcSet=''/>
+
+        const styles = {
+            img: {
+                width: "95%"
+            }
+        }
+
+        thankyou = <img style={styles.img} className='happyImg' src={happyImage} alt="" srcSet='' />
     }
 
 
@@ -103,11 +112,13 @@ const Review = () => {
                     {thankyou}
 
                 </div>
+
                 <div className="cart-container">
                     <Cart cart={cart}>
                         <button onClick={handlePlaceOrder} className='main-button'>Place Order</button>
                     </Cart>
                 </div>
+
             </div>
 
         </div>
