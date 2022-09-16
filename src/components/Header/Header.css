@@ -38,7 +38,17 @@ nav {
 }
 
 @media (max-width: 800px) {
+    .container img {
+        margin-top: 10px;
+        height: 80px;
+    }
+
     nav {
+        display: inline-block;
         flex-direction: column;
+    }
+
+    nav div {
+        display: inline-block;
     }
 }

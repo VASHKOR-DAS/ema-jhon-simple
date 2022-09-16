@@ -15,10 +15,9 @@
 }
 
 .product-name {
+    width: 60%;
     padding-left: 25px;
-    width: 80%;
-}
-.product h4 {
+    text-decoration: none;
     color: blue;
 }
 
@@ -35,7 +34,17 @@
 
 /* responsive */
 @media (max-width: 800px) {
+
     .product {
       flex-direction: column;
+    }
+
+    .product-img, .product-name {
+        width: 60%;
+        font-size: small;
+    }
+
+    .main-button {
+        width: 100px;
     }
   }

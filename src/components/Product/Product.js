@@ -13,14 +13,12 @@ const Product = (props) => {
     return (
         <div className="product">
             <div>
-                <img src={img} alt="product img" srcSet="" />
+                <img className='product-img' src={img} alt="product img" srcSet="" />
             </div>
             <div className="product-name">
 
                 {/* ai Link ta holo react-router-dom */}
-                <h4><Link to={'/product/' + key}>{name}</Link></h4>
-
-                <br />
+                <h4><Link className='product-name' to={'/product/' + key}>{name}</Link></h4>
                 <p><small>by : {seller}</small></p>
                 <p>${price}</p>
                 <p><small>only {stock} left in stock - order soon</small></p>
