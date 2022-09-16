@@ -12,10 +12,10 @@ const ProductDetail = () => {
     const product = fakeData.find(pd => pd.key === ProductKey)
     return (
         <div>
-            <h1>Your Product Details.</h1>
+            {/* <h1>Your Product Details.</h1>
             <h2>Product Key : {ProductKey}</h2>
 
-            <h2>Show Product Match With ProductKey</h2>
+            <h2>Show Product Match With ProductKey</h2> */}
             {/* Manually
 
             <h3>{product.name}</h3>
