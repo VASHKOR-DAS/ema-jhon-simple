@@ -13,6 +13,8 @@ import NotFound from './components/NotFound/NotFound';
 import ProductDetail from './components/ProductDetail/ProductDetail';
 import Shop from './components/Shop/Shop';
 import Review from './components/Review/Review';
+import Login from './components/Login/Login';
+import SignUp from './components/SignUp/SignUp';
 
 
 function App() {
@@ -31,6 +33,10 @@ function App() {
           <Route exact path='/review' element={<Review></Review>}></Route>
 
           <Route path='/inventory' element={<Inventory></Inventory>}></Route>
+
+          <Route path='/login' element={<Login></Login>}></Route>
+
+          <Route path='/signup' element={<SignUp></SignUp>}></Route>
 
           {/* dynamic data set */}
           <Route path='/product/:ProductKey' element={<ProductDetail></ProductDetail>}></Route>
