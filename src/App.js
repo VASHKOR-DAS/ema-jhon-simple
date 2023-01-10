@@ -19,7 +19,7 @@ import SignUp from './components/SignUp/SignUp';
 
 function App() {
   return (
-    <div>
+    <div className='bg-white'>
       <Header></Header>
 
       <Router>

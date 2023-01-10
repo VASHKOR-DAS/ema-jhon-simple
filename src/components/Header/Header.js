@@ -1,8 +1,13 @@
 import React from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/UserContext';
 import logo from '../../images/logo.png'; // 1 level-up a hole ../
 import './Header.css' //same folder hole ./
 
 const Header = () => {
+
+    const {user} = useContext(AuthContext);
+
     return (
         <>
 
@@ -19,6 +24,7 @@ const Header = () => {
                         </ul>
                     </div>
                     <a href='/' className="w-36"><img src={logo} alt="" /></a>
+                    {<span>{user?.email}</span>}
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
