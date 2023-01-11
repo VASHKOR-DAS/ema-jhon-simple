@@ -7,7 +7,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import Header from './components/Header/Header';
+import Main from './layout/Main';
 import Inventory from './components/Inventory/Inventory';
 import NotFound from './components/NotFound/NotFound';
 import ProductDetail from './components/ProductDetail/ProductDetail';
@@ -15,12 +15,14 @@ import Shop from './components/Shop/Shop';
 import Review from './components/Review/Review';
 import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
+import Shipping from './components/Shipping/Shipping';
+import PrivateRoute from './routes/PrivateRoute';
 
 
 function App() {
   return (
     <div className='bg-white'>
-      <Header></Header>
+      <Main></Main>
 
       <Router>
         <Routes>
@@ -33,6 +35,8 @@ function App() {
           <Route exact path='/review' element={<Review></Review>}></Route>
 
           <Route path='/inventory' element={<Inventory></Inventory>}></Route>
+
+          <Route path='/shipping' element={<PrivateRoute> <Shipping></Shipping> </PrivateRoute>}></Route>
 
           <Route path='/login' element={<Login></Login>}></Route>
 
